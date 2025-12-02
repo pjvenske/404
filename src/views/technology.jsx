@@ -2,11 +2,11 @@ import React, { useEffect, useState }  from "react";
 import ArticleCard from "../components/articleCard";
 import { Link } from "react-router-dom";
 
-export default function Arts() {
+export default function Technology() {
     const [data, setData] = useState([]);
-     const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token');
     useEffect(() => {
-        fetch("http://localhost:5000/api/articles/category/art", {
+        fetch("http://localhost:5000/api/articles/category/technology", {
             method: "GET",
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -19,7 +19,7 @@ export default function Arts() {
 
     return (
         <div>
-            <h1>Arts Screen</h1>
+            <h1>Technology Screen</h1>
             <div className="add-article-link">
                 <Link to="/add-form">Add New Article</Link>
             </div>
