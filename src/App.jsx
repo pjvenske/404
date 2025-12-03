@@ -10,6 +10,7 @@ import AddForm from './views/addForm'
 import ArticleDetails from './views/articleDetails'
 import Login from './views/Login'
 import Signup from "./views/Signup";
+import Home from './views/Home'
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
       <div className="app-container">
         <div className="sidebar">
           <nav>
+            <Link className="nav-link" to="/">Home</Link>
             <Link className="nav-link" to="/arts">Arts</Link>
             <Link className="nav-link" to="/maths">Maths</Link>
             <Link className="nav-link" to="/technology">Technology</Link>
@@ -33,6 +35,7 @@ export default function App() {
             <Route path="/article/:id" element={<ArticleDetails />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/" element={<Home />} />
           </Routes>
         </main>
       </div>
