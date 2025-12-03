@@ -50,6 +50,7 @@ export default function ArticleCard({ article, onDelete }) {
 
   return (
     <div className="article-card">
+
       <div className="article-content">
         <h3 className="article-title">{article.name}</h3>
         <p className="article-text">{article.about}</p>
@@ -72,6 +73,30 @@ export default function ArticleCard({ article, onDelete }) {
           {deleting ? "Deleting..." : "Delete"}
         </button>
       </div>
+
+        <div className="article-info">
+            <h3>{article.name}</h3>
+            <p>{article.type}</p>
+            <p>{article.about}</p>
+        </div>
+
+        <div className="article-actions">
+            <div className="article-button">
+                <Link to={`/article/${article.id}`}>
+                Read More
+                </Link>
+            </div>
+            <div>
+                <button
+                className="article-btn delete-btn"
+                onClick={handleDelete}
+                disabled={deleting}
+                >
+                {deleting ? "Deleting..." : "Delete"}
+                </button>
+            </div>
+        </div>
+
     </div>
   );
 }

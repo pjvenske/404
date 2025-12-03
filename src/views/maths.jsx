@@ -1,11 +1,17 @@
 import React, { useEffect, useState }  from "react";
 import ArticleCard from "../components/articleCard";
+import { Link } from "react-router-dom";
 
 export default function Maths() {
     const [data, setData] = useState([]);
-
+    const token = localStorage.getItem('token');
     useEffect(() => {
-        fetch("http://localhost:5000/api/articles/category/mathematics")
+        fetch("http://localhost:5000/api/articles/category/mathematics", {
+            method: "GET",
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
             .then((response) => { return response.json(); })
             .then(data => setData(data.articles))
             .catch((err) => { console.log(err) })
@@ -13,11 +19,18 @@ export default function Maths() {
 
     return (
         <div>
-            <h1>Mathematics Screen</h1>
+            <h1>Maths Screen</h1>
+            <div className="add-article-link">
+                <Link to="/add-form">Add New Article</Link>
+            </div>
             <div className="cards-grid">
-                {data.map( article => (
-                    <ArticleCard  article={article} />
-                ))}
+                <ul className="articles-list">
+                    {data.map(article => (
+                        <li key={article.id}>
+                            <ArticleCard article={article} />
+                        </li>
+                    ))}
+                </ul>
             </div>
         </div>
     );
