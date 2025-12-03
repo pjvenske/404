@@ -13,6 +13,8 @@ import Maths from "./views/maths";
 import AddForm from "./views/addForm";
 import Login from "./views/Login";
 import Signup from "./views/Signup";
+import EditForm from "./views/editform";
+
 
 function Layout() {
   return (
@@ -59,6 +61,7 @@ export default function App() {
           <Route path="/add-form" element={<AddForm />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/edit/:id" element={<EditForm/>}/>
         </Route>
       </Routes>
     </Router>
