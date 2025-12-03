@@ -1,3 +1,4 @@
+// src/components/articleCard.jsx
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -38,9 +39,7 @@ export default function ArticleCard({ article, onDelete }) {
         return;
       }
 
-      // Call parent callback to refresh list
       if (onDelete) onDelete(article.id);
-
     } catch (err) {
       console.error("Delete error:", err);
       alert("Error deleting article.");
@@ -51,6 +50,30 @@ export default function ArticleCard({ article, onDelete }) {
 
   return (
     <div className="article-card">
+
+      <div className="article-content">
+        <h3 className="article-title">{article.name}</h3>
+        <p className="article-text">{article.about}</p>
+      </div>
+
+      <div className="article-actions">
+        <Link className="article-btn read-btn" to={`/article/${article.id}`}>
+          Read More
+        </Link>
+
+        <Link className="article-btn edit-btn" to={`/edit/${article.id}`}>
+          Edit
+        </Link>
+
+        <button
+          className="article-btn delete-btn"
+          onClick={handleDelete}
+          disabled={deleting}
+        >
+          {deleting ? "Deleting..." : "Delete"}
+        </button>
+      </div>
+
         <div className="article-info">
             <h3>{article.name}</h3>
             <p>{article.type}</p>
@@ -73,6 +96,7 @@ export default function ArticleCard({ article, onDelete }) {
                 </button>
             </div>
         </div>
+
     </div>
   );
 }
