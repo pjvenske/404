@@ -51,12 +51,13 @@ export default function ArticleCard({ article, onDelete }) {
 
   return (
     <div className="article-card">
-      <div className="article-content">
+      <div className="article-info">
         <h3>{article.name}</h3>
+        <p>{article.type}</p>
         <p>{article.about}</p>
       </div>
 
-      <div className="article-actions">
+      <div className="article-button">
         <Link className="article-btn read-btn" to={`/article/${article.id}`}>
           Read More
         </Link>
