@@ -7,9 +7,21 @@ export default function EditForm() {
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
-    name: "",
-    about: "",
-    category: "art",
+      category: '',
+        type: '',
+        name: '',
+        born: '',
+        died: '',
+        nationality: '',
+        known_for: '',
+        notable_work: '',
+        about: '',
+        year: '',
+        medium: '',
+        dimensions: '',
+        location: '',
+        designed_by: '',
+        developer: ''
   });
 
   const [loading, setLoading] = useState(true);
