@@ -1,3 +1,53 @@
+Setup Guide 
+
+Required: 
+
+Node.js ideally latest version 
+
+MySQL Workbench 
+
+ 
+
+Database Setup: 
+
+Open MySQL workbench and connect to your localhost 
+
+Once connected import the LibrarySqlBackup scheme and execute the query 
+
+ 
+
+Backend Setup: 
+
+Run the following commands 
+
+cd backend404  
+
+npm install 
+
+npm start 
+
+If successful you should see: 
+
+Server running on port 5000 
+
+ 
+
+Frontend Setup: 
+
+cd 404 
+
+npm install 
+
+npm run dev 
+
+If successful you should see: 
+
+Local:   http://localhost:5173/ 
+
+Click the link to access the website 
+
+ 
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
