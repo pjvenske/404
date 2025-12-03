@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function ArticleDetails() {
     const { id } = useParams();
@@ -24,6 +25,9 @@ export default function ArticleDetails() {
         <div className='article-details'>
             <div>
                 <h1>{data.name}</h1>
+                <Link to={`/edit-form/${data.id}`}>Edit Article</Link>
+            </div>
+            <div>
                 <div>
                     <p>Type: {data.type}</p>
                     { data.born && <p>Born: {data.born}</p> }
