@@ -1,11 +1,4 @@
-import React from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  NavLink,
-  Outlet,
-} from "react-router-dom";
+import { BrowserRouter,  Routes,  Route,  NavLink,  Outlet,} from "react-router-dom";
 
 import Home from "./views/Home";
 import Arts from "./views/arts";
@@ -13,9 +6,9 @@ import Maths from "./views/maths";
 import AddForm from "./views/addForm";
 import Login from "./views/Login";
 import Signup from "./views/Signup";
-import ArticleDetails from "./views/articleDetails"; // if you have it
-import Technology from "./views/technology";         // if you have it
-// import EditForm from "./views/editForm";          // if you have it
+import ArticleDetails from "./views/articleDetails"; 
+import Technology from "./views/technology";        
+import EditForm from "./views/editForm";          
 
 function Layout() {
   return (
@@ -31,6 +24,9 @@ function Layout() {
           </NavLink>
           <NavLink className="nav-link" to="/maths">
             Maths
+          </NavLink>
+          <NavLink className="nav-link" to="/technology">
+            Technology
           </NavLink>
           <NavLink className="nav-link" to="/add-form">
             Add Form
@@ -48,7 +44,7 @@ function Layout() {
       <div className="top-header">
       <h1>404 Student Library</h1>
       <p>Explore curated articles and biographies</p>
-</div>
+  </div>
 
 
         <div className="main-inner">
@@ -66,7 +62,7 @@ function Layout() {
 
 export default function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
@@ -75,11 +71,11 @@ export default function App() {
           <Route path="/add-form" element={<AddForm />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/articles/:id" element={<ArticleDetails />} />
-          {/* <Route path="/technology" element={<Technology />} /> */}
-          {/* <Route path="/edit/:id" element={<EditForm />} /> */}
+          <Route path="/article/:id" element={<ArticleDetails />} />
+          <Route path="/technology" element={<Technology />} />
+          <Route path="/edit-form/:id" element={<EditForm />} />
         </Route>
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
